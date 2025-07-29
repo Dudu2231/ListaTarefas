@@ -11,10 +11,19 @@ function App() {
   const [tasks, setTasks] = useState <TasksModel[]> ([]);
   const title =  useRef<HTMLInputElement | null>(null)
   const description =  useRef<HTMLTextAreaElement | null>(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(()=>{
-    localStorage.setItem("tarefas", JSON.stringify(tasks))
-  }, [tasks])
+    const savedTasks = localStorage.getItem("tasks")
+    if (savedTasks){
+      setTasks(()=> JSON.parse(savedTasks))
+    }
+    setLoaded(true)
+  }, [])
+
+  useEffect(()=>{
+    if (loaded) localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks, loaded])
 
   const addTask = ()=>{
     if (title.current!==null && description.current!==null){
@@ -62,7 +71,7 @@ function App() {
          </div>
 
           <div className="my-3 flex flex-col">
-              {tasks.map((item)=> <Task doneFunc={()=> removeTask(item.id)} title={item.title} description={item.description}/>)}
+              {tasks.map((item)=> <Task key={item.id} doneFunc={()=> removeTask(item.id)} title={item.title} description={item.description}/>)}
           </div>
           
         </main>
