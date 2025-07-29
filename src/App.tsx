@@ -3,7 +3,8 @@ import {Button, Task} from "./components/Importations"
 
 interface TasksModel{
   title: string,
-  description: string
+  description: string,
+  id: number
 }
 
 function App() {
@@ -20,9 +21,13 @@ function App() {
       title.current.value = ""
       description.current.value = ""
       if (taskTitle && taskDescription){
-        setTasks((prev)=> [...prev, {title: taskTitle, description: taskDescription}])
+        setTasks((prev)=> [...prev, {title: taskTitle, description: taskDescription, id: Date.now()}])
       }
     }
+  }
+
+  const removeTask = (id:number)=>{
+    setTasks((prev)=> prev.filter((task)=> task.id!==id))
   }
 
   return (
@@ -55,7 +60,7 @@ function App() {
          </div>
 
           <div className="my-3 flex flex-col">
-              {tasks.map((item)=> <Task title={item.title} description={item.description}/>)}
+              {tasks.map((item)=> <Task doneFunc={()=> removeTask(item.id)} title={item.title} description={item.description}/>)}
           </div>
           
         </main>
