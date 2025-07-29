@@ -1,4 +1,4 @@
-import {useRef, useState } from "react"
+import {useEffect, useRef, useState } from "react"
 import {Button, Task} from "./components/Importations"
 
 interface TasksModel{
@@ -12,8 +12,11 @@ function App() {
   const title =  useRef<HTMLInputElement | null>(null)
   const description =  useRef<HTMLTextAreaElement | null>(null)
 
-  const addTask = ()=>{
+  useEffect(()=>{
+    localStorage.setItem("tarefas", JSON.stringify(tasks))
+  }, [tasks])
 
+  const addTask = ()=>{
     if (title.current!==null && description.current!==null){
       let taskTitle = title.current.value.trim()
       let taskDescription = description.current.value.trim()
