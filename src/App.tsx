@@ -35,8 +35,7 @@ function App() {
                       flex flex-col
                       justify-center
                       items-center">
-        
-        <div className="p-5 bg-gray-100 shadow">
+        <div className="p-5 bg-gray-100 shadow md:max-w-6/12">
 
         <header className="p-4 text-center">
           <h1 className="text-4xl md:text-6xl
