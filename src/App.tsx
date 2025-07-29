@@ -1,4 +1,4 @@
-import {useId, useRef, useState } from "react"
+import {useRef, useState } from "react"
 import {Button, Task} from "./components/Importations"
 
 interface TasksModel{
@@ -54,8 +54,8 @@ function App() {
             </span>
          </div>
 
-          <div className="my-3 flex flex-col gap-1">
-              {tasks.map((item)=> <Task title={item.title} description={item.description}/> )}
+          <div className="my-3 flex flex-col">
+              {tasks.map((item)=> <Task title={item.title} description={item.description}/>)}
           </div>
           
         </main>
