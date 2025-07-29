@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from "react"
+import {useRef, useState } from "react"
 import Button from "./components/Button" 
 import Task from "./components/Task"
 
@@ -21,8 +21,9 @@ function App() {
 
       title.current.value = ""
       description.current.value = ""
-      
-      setTasks((prev)=> [...prev, {title: taskTitle, description: taskDescription}])
+      if (taskTitle && taskDescription){
+        setTasks((prev)=> [...prev, {title: taskTitle, description: taskDescription}])
+      }
     }
   }
 
@@ -33,10 +34,10 @@ function App() {
                       justify-center
                       items-center">
         
-        <div className="p-5 border-rose-200 border">
+        <div className="p-5 bg-gray-200">
 
         <header className="p-4 text-center">
-          <h1 className="text-xl md:text-4xl
+          <h1 className="text-4xl md:text-6xl
                           underline
                        decoration-blue-600
                         decoration-dashed">Lista de Tarefas</h1>
