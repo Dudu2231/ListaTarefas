@@ -1,6 +1,5 @@
 import {useRef, useState } from "react"
-import Button from "./components/Button" 
-import Task from "./components/Task"
+import {Button, Task} from "./components/Importations"
 
 interface TasksModel{
   title: string,
@@ -29,12 +28,11 @@ function App() {
 
   return (
       <div className="min-h-screen
-                      bg-gray-200
                       flex flex-col
                       justify-center
                       items-center">
         
-        <div className="p-5 bg-gray-200">
+        <div className="p-5 bg-gray-100 shadow">
 
         <header className="p-4 text-center">
           <h1 className="text-4xl md:text-6xl
@@ -42,7 +40,7 @@ function App() {
                        decoration-blue-600
                         decoration-dashed">Lista de Tarefas</h1>
 
-          <p className="text-gray-700">Anote suas metas do dia</p>
+          <p className="text-gray-800 mt-4">Anote suas metas do dia</p>
         </header>
 
         <main className="">
@@ -53,7 +51,7 @@ function App() {
             <label htmlFor="description">Descrição:</label>
             <textarea id="description" className="border" ref={description}></textarea>
             <span className="self-center my-1">
-              <Button color="#00c01f" label="Adicionar" onClick={addTask}/>
+              <Button color="#00d600" label="Adicionar" onClick={addTask}/>
             </span>
          </div>
 

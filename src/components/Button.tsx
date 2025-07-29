@@ -11,7 +11,8 @@ function Button({label, color, onClick}: ButtonProps){
                     hover:opacity-65 
                     hover:translate-y-1.5
                     transition cursor-pointer
-                    active:opacity-5 active:scale-50"
+                    active:opacity-5 active:scale-50
+                    text-white font-semibold"
         style={{backgroundColor: `${color}`}}
         onClick={onClick}
         >

@@ -7,8 +7,8 @@ function Task({title, description}: TaskProps){
 
     return(
         <div className="flex flex-wrap flex-col gap-1">
-            <h1 className="text-lg">{title}</h1>
-            <p>{description}</p>
+            <h1 className="text-xl">{title}</h1>
+            <p className="text-lg">{description}</p>
         </div>
     )
 }
