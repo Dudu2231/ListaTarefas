@@ -6,5 +6,5 @@ const repoName = 'ListaTarefas'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: `/${repoName}`
+  base: `/${repoName}/`
 })
